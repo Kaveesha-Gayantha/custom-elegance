@@ -595,3 +595,69 @@ footer .social-links a:hover {
 .step p {
     font-size: 15px;
 }
+
+/* =========================================
+   MOBILE RESPONSIVENESS (Phone ekata galapenna)
+   ========================================= */
+@media (max-width: 768px) {
+    /* Pituwe idakada (padding) adu kirima */
+    section {
+        padding: 60px 5%; 
+    }
+
+    /* Menu bar eka yatin yatata genima */
+    header {
+        flex-direction: column;
+        padding: 15px 5%;
+    }
+    
+    header .logo h1 {
+        font-size: 26px;
+        margin-bottom: 15px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    /* Home Page Hero Section eke akuru podi kirima */
+    .hero-content h2 {
+        font-size: 35px;
+    }
+    
+    .hero-content p {
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+
+    /* Contact Page Banner eka phone ekata galapenna podi kirima */
+    #contact-banner .banner-content {
+        padding: 60px 15px;
+        border-radius: 0 0 30px 30px; /* Curve eka podi kara */
+    }
+    
+    #contact-banner .banner-content h2 {
+        font-size: 35px;
+    }
+    
+    #contact-banner .banner-content p {
+        font-size: 16px;
+    }
+
+    /* Contact Info & Form eke athule idakada adu kirima */
+    .contact-info, .contact-form {
+        padding: 30px 20px;
+    }
+    
+    /* Samanya Headings podi kirima */
+    section h2 {
+        font-size: 30px;
+    }
+
+    /* Process steps wala box tika podi kirima */
+    .process-steps {
+        gap: 20px;
+    }
+}
