@@ -1,0 +1,597 @@
+/* =========================================
+   GENERAL STYLES & LAYOUT (Okkoma Pages Walata)
+   ========================================= */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;500;600&display=swap');
+
+/* Root Variables */
+:root {
+    --primary-color: #2c3e50; 
+    --accent-color: #c09d5a;  
+    --accent-hover: #a68146;  
+    --bg-color: #ffffff;      
+    --bg-alt: #f8f6f2;        
+    --text-main: #333333;     
+    --text-light: #777777;    
+    --shadow-soft: 0 4px 15px rgba(0,0,0,0.06); 
+    --shadow-strong: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-alt); /* Site eke general background eka poddak light grey kala */
+    color: var(--text-main);
+    font-family: 'Montserrat', sans-serif; 
+    line-height: 1.8; 
+    overflow-x: hidden; 
+}
+
+h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif; 
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* =========================================
+   HEADER & NAVIGATION
+   ========================================= */
+header {
+    background-color: rgba(255, 255, 255, 0.98); 
+    padding: 25px 8%; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03); 
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--bg-alt);
+}
+
+header .logo h1 {
+    color: var(--primary-color);
+    font-size: 32px;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 35px; 
+}
+
+nav ul li a {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 14px; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+nav ul li a:hover,
+nav ul li a.active { 
+    color: var(--accent-color);
+}
+
+/* =========================================
+   HOME PAGE STYLES
+   ========================================= */
+
+/* Hero Section */
+#hero {
+    background-image: url('images/hero.jpg'); 
+    background-color: var(--primary-color); 
+    background-size: cover;
+    background-position: center;
+    height: 85vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    position: relative; 
+}
+
+#hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); 
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; 
+}
+
+.hero-content h2 {
+    font-size: 60px; 
+    color: #ffffff; 
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.hero-content p {
+    font-size: 22px;
+    margin-bottom: 40px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+}
+
+/* Buttons */
+.btn {
+    background-color: var(--accent-color);
+    color: #ffffff;
+    padding: 15px 40px; 
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 50px; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px); 
+    box-shadow: 0 5px 15px rgba(192, 157, 90, 0.3); 
+}
+
+.btn-secondary {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 12px 30px;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent-color);
+    color: #ffffff;
+}
+
+/* General Sections */
+section {
+    padding: 100px 8%; 
+    text-align: center;
+}
+
+#about {
+    background-color: #ffffff;
+}
+
+#featured {
+    background-color: var(--bg-alt); 
+}
+
+section h2 {
+    font-size: 42px; 
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block; 
+}
+
+section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+section p {
+    color: var(--text-light);
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+#about p {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+/* Featured Designs Grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px; 
+    margin-top: 60px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 12px; 
+    overflow: hidden; 
+    box-shadow: var(--shadow-soft); 
+    transition: all 0.4s ease; 
+    border: 1px solid rgba(0,0,0,0.01); 
+    text-align: left; 
+    padding-bottom: 10px;
+}
+
+.card:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+}
+
+.card img {
+    width: 100%;
+    height: 400px; 
+    object-fit: cover;
+    background-color: #f0f0f0; 
+}
+
+.card h3 {
+    padding: 20px 20px 5px 20px;
+    font-size: 24px;
+    color: var(--primary-color);
+}
+
+.card p {
+    padding: 0 20px 20px 20px;
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+/* =========================================
+   GALLERY PAGE STYLES
+   ========================================= */
+.page-header {
+    background-color: #ffffff;
+    padding: 80px 8% 40px 8%;
+}
+
+.page-header p {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#photo-gallery {
+    padding-top: 40px; 
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px; 
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--shadow-soft);
+    cursor: pointer; 
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover; 
+    transition: transform 0.5s ease; 
+    display: block;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05); 
+}
+
+/* =========================================
+   CONTACT PAGE STYLES (Full-width Curved Banner)
+   ========================================= */
+
+/* Banner Container Eka */
+#contact-banner.banner-section {
+    background-image: none; 
+    background-color: transparent; 
+    height: auto;
+    padding: 0; /* Sampurna palalata yanna padding ain kara */
+    display: block;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+#contact-banner.banner-section::after {
+    display: none;
+}
+
+/* Full-width Curved Banner Eka */
+#contact-banner .banner-content {
+    background-image: url('images/contact-banner.jpg'); 
+    background-size: cover;
+    background-position: center;
+    width: 100%; 
+    max-width: none; 
+    margin: 0;
+    padding: 40px 20px; /* Uda saha yata idakada */
+    border-radius: 0 0 80px 80px; /* Yatin vitharak loku curve ekak */
+    box-shadow: var(--shadow-strong); 
+    position: relative;
+    overflow: hidden; 
+}
+
+/* Box eka athule image eka uda dark shade eka */
+#contact-banner .banner-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Akuru penna podi dark shade ekak */
+    z-index: 1;
+}
+
+/* Banner eke Text Styles */
+#contact-banner .banner-content h2,
+#contact-banner .banner-content p {
+    position: relative;
+    z-index: 2; 
+    color: #ffffff;
+}
+
+#contact-banner .banner-content h2 {
+    font-size: 55px; 
+    margin-bottom: 15px;
+}
+
+#contact-banner .banner-content h2::after {
+    display: none; 
+}
+
+#contact-banner .banner-content p {
+    font-size: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* Contact Info saha Form Container */
+#contact-section {
+    padding-top: 0px;
+    padding-bottom: 80px;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap; 
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: var(--shadow-strong);
+    overflow: hidden; 
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+    background-color: var(--primary-color); 
+    color: #ffffff; 
+    padding: 50px 40px;
+}
+
+.contact-form {
+    flex: 1.5; 
+    min-width: 300px;
+    padding: 50px 40px;
+    background-color: #ffffff;
+}
+
+.contact-info h3 {
+    color: var(--accent-color);
+    margin-bottom: 25px;
+    font-size: 32px;
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9); 
+}
+
+.business-hours {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2); 
+}
+
+.business-hours h4 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.contact-form h3 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    font-size: 28px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--primary-color);
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    background-color: #fcfcfc;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px rgba(192, 157, 90, 0.2);
+}
+
+.contact-form .btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+footer {
+    background-color: var(--primary-color);
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 60px 8% 40px 8%;
+    font-size: 14px;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+footer .social-links {
+    margin-top: 20px;
+}
+
+footer .social-links a {
+    color: var(--accent-color);
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+footer .social-links a:hover {
+    color: #ffffff;
+}
+
+
+/* =========================================
+   SERVICES PAGE STYLES
+   ========================================= */
+
+#services-list {
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-box {
+    background-color: #ffffff;
+    padding: 50px 40px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+    flex: 1;
+    min-width: 320px;
+    text-align: center;
+    border-bottom: 5px solid var(--accent-color); /* Yatin lassana gold line ekak */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.service-box:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-strong);
+}
+
+.service-box h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+
+.service-box p {
+    color: var(--text-light);
+    margin-bottom: 0;
+}
+
+/* Our Process Section */
+#our-process {
+    background-color: #ffffff; /* Sudu background eka */
+}
+
+.process-steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 60px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.step {
+    flex: 1;
+    min-width: 220px;
+    text-align: center;
+    padding: 20px;
+}
+
+.step-number {
+    width: 70px;
+    height: 70px;
+    background-color: var(--accent-color);
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px auto;
+    box-shadow: 0 5px 15px rgba(192, 157, 90, 0.4); /* Gold shadow ekak */
+}
+
+.step h4 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.step p {
+    font-size: 15px;
+}
